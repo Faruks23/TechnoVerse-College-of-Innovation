@@ -1,6 +1,5 @@
 import React from "react";
-import { SearchIcon } from "@heroicons/react/outline";
-
+import { FaSearch } from "react-icons/fa";
 const SearchInput = () => {
   return (
     <div className="relative">
@@ -10,7 +9,7 @@ const SearchInput = () => {
         placeholder="Search..."
       />
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <SearchIcon className="w-5 h-5 text-gray-400" />
+        <FaSearch className="w-5 h-5 text-gray-400" />
       </div>
     </div>
   );
