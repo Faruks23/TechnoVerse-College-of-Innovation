@@ -1,10 +1,20 @@
 
 import { NavLink } from "react-router-dom";
+import {useContext}from 'react'
 import Login from "../Login/Login";
 import NavList from "./NavItem/NavList";
+import { AuthContext } from "../AuthPorvider/AuthProvider";
 
 
 const Header = () => {
+  const { user, LogOutUser } = useContext(AuthContext);
+
+  const handleLogout = () => { 
+    LogOutUser()
+      .then(() => {
+       alert('logged out successfully')
+    })
+  }
   return (
     <div className="navbar bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
       <div className="navbar-start">
@@ -38,18 +48,30 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">
           <NavList></NavList>
         </ul>
-             
-        
-        <div className="Authentication">
 
-          <ul>
+        <div className="Authentication ">
+          <ul className="md:flex gap-5">
+            {user ? (
+              <>
+                <button onClick={handleLogout} className="btn btn-sm">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to={"/login"}>Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/SignUp"}>SignUp</NavLink>
+                </li>
+              </>
+            )}
             <li>
-              <NavLink to={'/login'}>Login</NavLink>
+              <NavLink to={"/Profile"}>Profile</NavLink>
             </li>
           </ul>
-           
         </div>
-
       </div>
     </div>
   );

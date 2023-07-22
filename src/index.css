@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.active{
+  background: none !important;
+  color: rgb(157, 207, 82);
+}

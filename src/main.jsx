@@ -9,11 +9,15 @@ import Addmission from './Component/Pages/Addmission/Addmission.jsx'
 import MyCollege from './Component/Pages/MyCollege/MyCollege.jsx'
 import AuthProvider from './Component/AuthPorvider/AuthProvider.jsx'
 import Login from './Component/Login/Login.jsx'
+import SignUp from './Component/Resgister/SignUp.jsx'
+import Profile from './Component/Pages/Profile/Profile.jsx'
+import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -38,8 +42,18 @@ const routes = createBrowserRouter([
       {
         path: '/login',
         element:<Login></Login>
+         
+      },
+      {
+        path: '/SignUp',
+        element:<SignUp></SignUp>
         
-      }
+      },
+      {
+        path: '/profile',
+        element:<Profile></Profile>
+        
+      },
     ]
 
   }
