@@ -4,6 +4,7 @@ import Banner from './Banner/Banner';
 import SearchInput from '../../Header/Searchinput/Searchinput';
 import CollageCard from './CollageCard/CollageCard';
 import Gallery from './Gallery/Gallery';
+import ResearchPapersSection from './Research/Research';
 const Home = () => {
 
   
@@ -42,7 +43,13 @@ const Home = () => {
       </div>
       {/* gallery section */}
       
-        <Gallery></Gallery>
+      <Gallery></Gallery>
+      
+      {/* Research section */}
+
+      <ResearchPapersSection>
+        
+      </ResearchPapersSection>
 
     </div>
   );
