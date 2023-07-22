@@ -7,6 +7,8 @@ import Home from './Component/Pages/Home/Home.jsx'
 import College from './Component/Pages/Collage/College.jsx'
 import Addmission from './Component/Pages/Addmission/Addmission.jsx'
 import MyCollege from './Component/Pages/MyCollege/MyCollege.jsx'
+import AuthProvider from './Component/AuthPorvider/AuthProvider.jsx'
+import Login from './Component/Login/Login.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -32,6 +34,11 @@ const routes = createBrowserRouter([
         path: '/MyCollege',
         element:<MyCollege></MyCollege>
         
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
+        
       }
     ]
 
@@ -40,6 +47,8 @@ const routes = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={routes}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={routes}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

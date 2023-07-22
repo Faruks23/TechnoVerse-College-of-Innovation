@@ -1,5 +1,6 @@
+
 import { NavLink } from "react-router-dom";
-import SearchInput from "./Searchinput/Searchinput";
+import Login from "../Login/Login";
 import NavList from "./NavItem/NavList";
 
 
@@ -37,6 +38,18 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">
           <NavList></NavList>
         </ul>
+             
+        
+        <div className="Authentication">
+
+          <ul>
+            <li>
+              <NavLink to={'/login'}>Login</NavLink>
+            </li>
+          </ul>
+           
+        </div>
+
       </div>
     </div>
   );
