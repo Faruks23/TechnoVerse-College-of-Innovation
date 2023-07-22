@@ -1,17 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Main from './Component/Main'
+import Header from './Component/Header/Header'
+import {Outlet} from 'react-router-dom'
+import Footer from './Component/Footer/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-     <Main></Main>
+      <div className="header">
+        <Header></Header>
+      </div>
+      <div className="main min-h-[calc(100vh-60px)]">
+        <Outlet />
+      </div>
+      <div className="footer">
+        <Footer></Footer>
+      </div>
     </>
-  )
+  );
 }
 
 export default App
