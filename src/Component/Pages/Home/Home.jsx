@@ -2,6 +2,8 @@ import React from 'react';
 import toast, { Toaster } from "react-hot-toast";
 import Banner from './Banner/Banner';
 import SearchInput from '../../Header/Searchinput/Searchinput';
+import CollageCard from './CollageCard/CollageCard';
+import Gallery from './Gallery/Gallery';
 const Home = () => {
 
   
@@ -13,7 +15,10 @@ const Home = () => {
         <Banner></Banner>
         <div className="search absolute top-0 z-50 w-full h-full flex flex-col justify-center items-center">
           <div className="mt-[-60px]  flex flex-col justify-center items-center">
-            <h1 className='text-2xl font-bold font-serif md:text-7xl text-white text-center mb-3'> We are Provide The best college services and facilities </h1>
+            <h1 className="text-2xl font-bold font-serif md:text-7xl text-white text-center mb-3">
+              {" "}
+              We are Provide The best college services and facilities{" "}
+            </h1>
             <p className="md:w-[50%] text-center text-white mb-10">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
               cupiditate ipsa iusto beatae alias ipsam, explicabo at quisquam
@@ -27,6 +32,18 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/*  colleges card */}
+
+      <div className="collageCard my-[100px]">
+        <h1 className="text-2xl md:text-5xl text-center uppercase mb-10">
+          Best <span className='text-pink-500'>Colleges</span>
+        </h1>
+        <CollageCard></CollageCard>
+      </div>
+      {/* gallery section */}
+      
+        <Gallery></Gallery>
+
     </div>
   );
 };

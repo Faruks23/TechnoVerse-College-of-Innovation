@@ -81,6 +81,12 @@ const AuthProvider = ({ children }) => {
     }
   }, [darkMode]);
 
+  const getId = (id) => {
+   console.log(id);
+ }
+
+
+
   const AuthUser = {
     CreateUser,
     loading,
@@ -91,6 +97,7 @@ const AuthProvider = ({ children }) => {
     SignInWithEmailPassword,
     toggleDarkMode,
     darkMode,
+    getId,
   };
   return (
     <>
