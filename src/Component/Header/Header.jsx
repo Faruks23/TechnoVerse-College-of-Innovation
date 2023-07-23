@@ -42,7 +42,9 @@ const Header = () => {
             <NavList></NavList>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl uppercase">Best Of Best</a>
+        <a className="btn btn-ghost text-xl uppercase">
+          Best <span className="text-pink-500"> Of </span> Best
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex text-white">
         <ul className="menu menu-horizontal px-1 uppercase font-serif font-bold">
