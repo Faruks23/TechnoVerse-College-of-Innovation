@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, } from "react";
 import {useParams} from 'react-router-dom'
-import { AuthContext } from '../../../AuthPorvider/AuthProvider';
 
 const CollegeDitails = () => {
   const { id } = useParams();
@@ -8,7 +7,9 @@ const CollegeDitails = () => {
 
   const [Details, setDetail] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/Details/${id}`)
+    fetch(
+      `https://techno-verse-college-of-innovation-server.vercel.app/Details/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setDetail(data));
   }, [id]);

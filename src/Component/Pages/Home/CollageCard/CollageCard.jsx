@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../../../Loader/Loader";
 import Card from "./card/Card";
+import useColleges from "../../../Hooks/useColleges";
 
 const CollageCard = () => {
 
-  const [colleges, setColleges]=useState([])
-   const [loading,setLoading] = useState(true)
-
-  useEffect(() => { 
-    setLoading(true)
-    fetch("http://localhost:5000/colleges")
-      .then(res => res.json())
-      .then(data => {
-        setColleges(data)
-        console.log(data);
-        setLoading(false)
-    })
-  },[])
+ const { colleges, loading } = useColleges();
 
   return (
     <div>

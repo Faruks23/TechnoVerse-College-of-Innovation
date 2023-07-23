@@ -10,7 +10,9 @@ const ReviewSection = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(
+      "https://techno-verse-college-of-innovation-server.vercel.app/reviews"
+    )
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

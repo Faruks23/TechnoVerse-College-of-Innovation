@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Home/CollageCard/card/Card";
 import Loader from "../../Loader/Loader";
+import Herro from "../../Shared/Herro/Herro";
+import useColleges from "../../Hooks/useColleges";
 
 const College = () => {
-   const [colleges, setColleges]=useState([])
-   const [loading,setLoading] = useState(true)
-
-  useEffect(() => { 
-    setLoading(true)
-    fetch("http://localhost:5000/colleges")
-      .then(res => res.json())
-      .then(data => {
-        setColleges(data)
-       
-        setLoading(false)
-    })
-  },[])
+  
+ const { colleges, loading } = useColleges();
 
   return (
     <div>
-      <div className="w-full h-[500px] relative mb-[100px] border">
-        <img
-          className=" blur-sm w-full h-full"
-          src="https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-          alt=""
-        />
-
-        <div className=" w-full  absolute top-40 z-50 flex flex-col justify-center items-center">
-          <h1 className="text-2xl lg:text-5xl uppercase font-bold mb-5">
-            Best <span className="text-pink-500">Colleges </span> in The world
-          </h1>
-          <p className="text-center font-serif lg:w-[500px] text-white">
-            {" "}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Perferendis provident labore iste sapiente, architecto distinctio
-            dicta similique atque tempora pariatur corporis ipsum voluptatum quo
-            sequi, est id illum fuga non.
-          </p>
-        </div>
-      </div>
+      <Herro
+        img={
+          "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        }
+        titlef={"Best"}
+        titlel={"colleges"}
+        subtitle={`   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis
+          provident labore iste sapiente, architecto distinctio dicta similique
+          atque tempora pariatur corporis ipsum voluptatum quo sequi, est id
+          illum fuga non.`}
+        span={" in The world"}
+      ></Herro>
 
       {loading ? (
         <>
