@@ -21,7 +21,7 @@ const Home = () => {
               {" "}
               We are Provide The best college services and facilities{" "}
             </h1>
-            <p className="md:w-[50%] text-center text-white mb-10">
+            <p className="md:w-[50%] text-center text-white mb-10 font-serif">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
               cupiditate ipsa iusto beatae alias ipsam, explicabo at quisquam
               dignissimos animi sint magnam vitae incidunt amet, distinctio

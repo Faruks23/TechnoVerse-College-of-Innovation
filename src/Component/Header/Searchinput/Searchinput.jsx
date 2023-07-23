@@ -27,7 +27,7 @@ const handleSearch = async (event) => {
   try {
     setLoader(true)
     const response = await axios.get(
-      `http://localhost:5000/api/colleges/search?q=${searchQuery}`
+      `https://techno-verse-college-of-innovation-server.vercel.app/api/colleges/search?q=${searchQuery}`
     );
     setSearchResults(response.data);
     console.log(response.data, "search results");

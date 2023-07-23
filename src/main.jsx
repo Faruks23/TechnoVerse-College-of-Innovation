@@ -14,7 +14,7 @@ import Profile from './Component/Pages/Profile/Profile.jsx'
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 import CollegeDitails from './Component/Pages/Home/CollegeDitails/CollegeDitails.jsx'
 import Form from './Component/Pages/Addmission/CandidateFrom/Form.jsx'
-import ResultsPage from './Component/Header/Searchinput/ResultPage/ResultPage.jsx'
+
 
 const routes = createBrowserRouter([
   {
@@ -58,10 +58,7 @@ const routes = createBrowserRouter([
         path: "/form/:data",
         element: <Form></Form>,
       },
-      {
-        path: "/results/:searchQuery",
-        element:<ResultsPage></ResultsPage>
-      },
+     
     ],
   },
 ]);
