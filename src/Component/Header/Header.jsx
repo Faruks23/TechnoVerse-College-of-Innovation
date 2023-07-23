@@ -16,9 +16,9 @@ const Header = () => {
     })
   }
   return (
-    <div className="navbar bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+    <div className="navbar bg-gradient-to-r from-indigo-400 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,13 +44,13 @@ const Header = () => {
         </div>
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex text-white">
+        <ul className="menu menu-horizontal px-1 uppercase font-serif font-bold">
           <NavList></NavList>
         </ul>
 
         <div className="Authentication ">
-          <ul className="md:flex gap-5">
+          <ul className="md:flex gap-5 uppercase font-serif font-bold">
             {user ? (
               <>
                 <button onClick={handleLogout} className="btn btn-sm">

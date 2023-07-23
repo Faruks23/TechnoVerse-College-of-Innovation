@@ -4,19 +4,19 @@ const ResearchPapersSection = () => {
   // Sample research paper links (replace with actual links from your data)
   const researchPapers = [
     {
-      img: "",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3po9yh9PfLXpXEsWTxbDfDRq3dnAaegMIbY6zebmUvQ3uNsu59-kRiZmLrtW_YdD_-4&usqp=CAU",
       title: "Machine Learning Techniques in Natural Language Processing",
       link: "https://example.com/research-paper-1",
       author: "John Doe",
     },
     {
-      img: "",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5qZoLTPtyOMdlHHIt2KXp88F2Nv5vwtySEjYHC5P3r7nX172wtRg_SkNfLxAfyoFQV8A&usqp=CAU",
       title: "Advancements in Quantum Computing",
       link: "https://example.com/research-paper-2",
       author: "Jane Smith",
     },
     {
-      img: "",
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfbpAqeK8_koeuiOf7IKZudL5izW5D-RJC0HQN4K0-YjnSntoUxZ_O2J-CR5vpmFIHrns&usqp=CAU",
       title: "The Impact of Climate Change on Biodiversity",
       link: "https://example.com/research-paper-3",
       author: "Alex Johnson",
@@ -36,12 +36,12 @@ const ResearchPapersSection = () => {
               className="p-3 c-card lg:w-[400px] lg:h-[390px] w-[300px] h-[100%] bg-slate-200 shadow-2xl border font-serif"
             >
               <img className=" w-full lg:h-[200px]" src={paper.img} alt="" />
-              <p className="font-bold my-1">{paper.title}</p>
+              <p className="font-bold my-3">{paper.title}</p>
               <p>
                 <span>Author:</span> {paper.author}
               </p>
 
-              <button className="bt my-2 shadow-md"> View Details</button>
+              <button className="bt shadow-md lg:mt-[40px]"> View Details</button>
             </div>
           ))}
         </div>

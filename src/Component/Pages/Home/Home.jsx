@@ -5,6 +5,7 @@ import SearchInput from '../../Header/Searchinput/Searchinput';
 import CollageCard from './CollageCard/CollageCard';
 import Gallery from './Gallery/Gallery';
 import ResearchPapersSection from './Research/Research';
+import ReviewSection from './ReviewSection/ReviewSection';
 const Home = () => {
 
   
@@ -48,8 +49,11 @@ const Home = () => {
       {/* Research section */}
 
       <ResearchPapersSection>
-        
+
       </ResearchPapersSection>
+
+      {/* Review section */}
+      <ReviewSection></ReviewSection>
 
     </div>
   );
