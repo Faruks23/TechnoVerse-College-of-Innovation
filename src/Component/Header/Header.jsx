@@ -42,7 +42,7 @@ const Header = () => {
             <NavList></NavList>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl uppercase">Best Of Best</a>
       </div>
       <div className="navbar-center hidden lg:flex text-white">
         <ul className="menu menu-horizontal px-1 uppercase font-serif font-bold">

@@ -14,7 +14,7 @@ import Profile from './Component/Pages/Profile/Profile.jsx'
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 import CollegeDitails from './Component/Pages/Home/CollegeDitails/CollegeDitails.jsx'
 import Form from './Component/Pages/Addmission/CandidateFrom/Form.jsx'
-
+// https://main--endearing-strudel-c0b0a7.netlify.app/
 
 const routes = createBrowserRouter([
   {
