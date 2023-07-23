@@ -13,6 +13,7 @@ import SignUp from './Component/Resgister/SignUp.jsx'
 import Profile from './Component/Pages/Profile/Profile.jsx'
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 import CollegeDitails from './Component/Pages/Home/CollegeDitails/CollegeDitails.jsx'
+import Form from './Component/Pages/Addmission/CandidateFrom/Form.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const routes = createBrowserRouter([
       {
         path: "/details/:id",
         element: <CollegeDitails></CollegeDitails>,
+      },
+      {
+        path: "/form/:data",
+        element: <Form></Form>,
       },
     ],
   },
