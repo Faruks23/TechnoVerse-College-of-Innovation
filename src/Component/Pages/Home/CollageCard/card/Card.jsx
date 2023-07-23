@@ -15,7 +15,7 @@ const Card = ({ item }) => {
     <div className="p-3 c-card lg:w-[400px] lg:h-[390px] w-[300px] h-[100%] bg-slate-200 shadow-2xl border font-serif">
       <img className=" w-full lg:h-[200px]" src={collegeImage} alt="" />
       <p className="font-bold my-1">{collegeName}</p>
-      <p>Admission: {admissionDate}</p>
+      <p>Admission: {admissionDate&& admissionDate}</p>
 
       <p>Rating: {collegeRating}</p>
       <p> Research: {researchCount}</p>

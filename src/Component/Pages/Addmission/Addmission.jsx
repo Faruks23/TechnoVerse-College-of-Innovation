@@ -56,7 +56,7 @@ const Addmission = () => {
                           {" "}
                           Admission Processes:{item.details?.admissionProcess}
                         </p>
-                        <NavLink to={`/form/${item.collegeName}`}>
+                        <NavLink to={`/form/${item._id}`}>
                         <div className="card-actions justify-end">
                           
                           <button className="bt mt-10  hover:scale-110  transition-all duration-500">

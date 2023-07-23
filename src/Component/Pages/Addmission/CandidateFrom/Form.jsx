@@ -1,17 +1,30 @@
 import React, { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../../../AuthPorvider/AuthProvider';
 const img_hosting_key = import.meta.env.VITE_IMG_KEY;
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+
 const Form = () => {
-  const {collageName}=useParams()
+  const {_id}=useParams()
 const { user } = useContext(AuthContext);
 const img_hosting_Url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 const fileInputRef = useRef(null);
 const [loader, setLoader] = useState();
+   const Navigate = useNavigate();
   
-
   const handleSubmit = (e) => {
+
+    if (!user) {
+      const process = confirm("you need login first")
+      if (process) {
+        Navigate('/login')
+      } else {
+
+        return;
+      }
+    }
+
+    
          setLoader(true);
       e.preventDefault();
       const form = e.target;
@@ -48,13 +61,14 @@ const [loader, setLoader] = useState();
 
            const Applied = {
              candidateName,
-             collageName,
+             _id,
              Subject,
              CandidateEmail,
              CandidatePhone,
              Address,
              DateOfBirth,
              img_url,
+             email:user?.email
            };
            fetch(`http://localhost:5000/admissionsForm`,{
              method: "POST",
@@ -67,6 +81,7 @@ const [loader, setLoader] = useState();
              .then((data) => {
                if (data.insertedId) {
                  setLoader(false);
+                 Navigate("/MyCollege");
                  toast.success("Class has been inserted successfully");
                }
                console.log(data);
@@ -86,19 +101,18 @@ const [loader, setLoader] = useState();
   return (
     <>
       <Toaster></Toaster>
-      <div className="absolute z-50 top-0 w-full h-[100vh]  flex justify-center items-center">
+      <div className="w-full h-[100vh]  flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
           className="w-full relative h-[100vh] mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
-          <p className="w-10 h-10 absolute top-0 right-0"> X</p>
 
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="candidateName"
             >
-              Candidate Name
+              Candidate Name:
             </label>
             <input
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -113,7 +127,7 @@ const [loader, setLoader] = useState();
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="candidateName"
           >
-            Candidate Name:
+           Subject:
           </label>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -135,6 +149,8 @@ const [loader, setLoader] = useState();
             type="text"
             name="CandidateEmail"
             id="CandidateEmail "
+            required
+            defaultValue={user?.email}
             placeholder="Enter candidate name"
           />
 
@@ -147,7 +163,8 @@ const [loader, setLoader] = useState();
           </label>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
+            type="number"
+            required
             name="CandidatePhone"
             id="CandidatePhone "
             placeholder="Enter candidate name"
@@ -177,7 +194,7 @@ const [loader, setLoader] = useState();
           </label>
           <input
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
+            type="date"
             name="DateOfBirth"
             id="Candidate Email "
             placeholder="Enter candidate name"

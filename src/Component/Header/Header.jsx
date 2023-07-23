@@ -49,7 +49,7 @@ const Header = () => {
           <NavList></NavList>
         </ul>
 
-        <div className="Authentication ">
+        <div className="Authentication ml-20 ">
           <ul className="md:flex gap-5 uppercase font-serif font-bold">
             {user ? (
               <>

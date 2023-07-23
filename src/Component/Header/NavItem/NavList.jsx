@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../AuthPorvider/AuthProvider';
 
 const NavList = () => {
+  const {user}=useContext(AuthContext)
   return (
     <>
       <li>
@@ -14,9 +16,13 @@ const NavList = () => {
       <li>
         <NavLink to={"/Admission"}> Admission </NavLink>
       </li>
-      <li>
-        <NavLink to={"/MyCollege"}> My College </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/MyCollege"}> My College </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 };
