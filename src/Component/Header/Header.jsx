@@ -4,7 +4,7 @@ import {useContext}from 'react'
 import Login from "../Login/Login";
 import NavList from "./NavItem/NavList";
 import { AuthContext } from "../AuthPorvider/AuthProvider";
-
+import { FaLaughWink } from "react-icons/fa";
 
 const Header = () => {
   const { user, LogOutUser } = useContext(AuthContext);
@@ -51,8 +51,8 @@ const Header = () => {
           <NavList></NavList>
         </ul>
 
-        <div className="Authentication ml-20 ">
-          <ul className="md:flex gap-5 uppercase font-serif font-bold">
+        <div className="Authentication ml-18 ">
+          <ul className="md:flex justify-center gap-5 uppercase font-serif font-bold items-center">
             {user ? (
               <>
                 <button onClick={handleLogout} className="btn btn-sm">
@@ -69,9 +69,15 @@ const Header = () => {
                 </li>
               </>
             )}
-            <li>
-              <NavLink to={"/Profile"}>Profile</NavLink>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to={"/Profile"}>
+                    <FaLaughWink className="w-10 h-10 text-black"></FaLaughWink>
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

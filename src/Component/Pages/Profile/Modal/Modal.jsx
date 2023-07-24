@@ -1,54 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthPorvider/AuthProvider";
 
-const Modal = ({ onClose }) => {
-
-  const { UpdateUser,user} = useContext(AuthContext);
+const Modal = ({ onClose, handleSubmit }) => {
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target
-    const name = form.name.value;
-    const email =form.email.value;
-    const university = form.university.value
-    const address = form.address.value
-    
-    console.log();
-    const users = { name, email, university, address }
-
-    UpdateUser(name)
-      .then(result => {
-        console.log(result);
-         fetch(`http://localhost:5000/UpdateUsers/${user?.email}`, {
-           method: "PUT",
-           headers: {
-             "content-type": "application/json",
-           },
-           body: JSON.stringify(users),
-         })
-           .then((res) => res.json())
-           .then((data) => {
-             if (data.matchedCount > 0) {
-               alert("updated completely");
-             }
-             console.log(data);
-           });
-
-      })
-      
-
-
-
-      .catch(err => { 
-        console.log(err);
-      })
-    console.log("Success");
-
-   
-
-    
- }
-
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
