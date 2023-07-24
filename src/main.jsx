@@ -60,7 +60,7 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/form/:data",
+        path: "/form/:item",
         element: <Form></Form>,
       },
     ],

@@ -56,18 +56,13 @@ const Addmission = () => {
                           {" "}
                           Admission Processes:{item.details?.admissionProcess}
                         </p>
-                        <NavLink to={`/form/${item._id}`}>
-                        <div className="card-actions justify-end">
-                          
-                          <button className="bt mt-10  hover:scale-110  transition-all duration-500">
-                            
-                            Apply
-                        
+                        <NavLink to={`/form/${item._id}`} state={item}>
+                          <div className="card-actions justify-end">
+                            <button className="bt mt-10  hover:scale-110  transition-all duration-500">
+                              Apply
                             </button>
-                          
-                      </div>
-                          </NavLink>
-
+                          </div>
+                        </NavLink>
                       </div>
                     </div>
                   </>

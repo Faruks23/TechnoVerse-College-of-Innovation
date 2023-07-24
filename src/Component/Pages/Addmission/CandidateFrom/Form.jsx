@@ -1,16 +1,20 @@
 import React, { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../../../AuthPorvider/AuthProvider';
 const img_hosting_key = import.meta.env.VITE_IMG_KEY;
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-const Form = () => {
-  const {_id}=useParams()
+const Form = (props) => {
+  const {item}=useParams()
 const { user } = useContext(AuthContext);
 const img_hosting_Url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 const fileInputRef = useRef(null);
 const [loader, setLoader] = useState();
    const Navigate = useNavigate();
+  const location = useLocation();
+ const items = location?.state;
+  
+  console.log(items, "from form");
   
   const handleSubmit = (e) => {
 
@@ -43,7 +47,7 @@ const [loader, setLoader] = useState();
         CandidatePhone,
         Address,
         DateOfBirth,
-
+       
       });
     
     const fromData = new FormData();
@@ -61,14 +65,14 @@ const [loader, setLoader] = useState();
 
            const Applied = {
              candidateName,
-             _id,
              Subject,
              CandidateEmail,
              CandidatePhone,
              Address,
              DateOfBirth,
              img_url,
-             email:user?.email
+             email: user?.email,
+             item:items,
            };
            fetch(`http://localhost:5000/admissionsForm`,{
              method: "POST",
