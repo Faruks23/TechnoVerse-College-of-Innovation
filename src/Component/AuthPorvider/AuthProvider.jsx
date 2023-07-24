@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -98,6 +99,12 @@ const AuthProvider = ({ children }) => {
       
   }
 
+  // password reset 
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
+  
+
   const AuthUser = {
     CreateUser,
     loading,
@@ -110,6 +117,7 @@ const AuthProvider = ({ children }) => {
     darkMode,
     getId,
     updateEmails,
+    resetPassword,
   };
   return (
     <>

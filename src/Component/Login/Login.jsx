@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from '../AuthPorvider/AuthProvider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
 
- const { SignInWithEmailPassword, SignInWithGoogle } = useContext(AuthContext);
+ const { SignInWithEmailPassword, SignInWithGoogle, resetPassword } =
+   useContext(AuthContext);
  const location = useLocation();
  const from = location.state?.from?.pathname || "/";
  const naviget = useNavigate();
@@ -74,6 +75,25 @@ const Login = () => {
       });
   }
 
+  // passwords reset password function
+ const fileInputRef = useRef(null);
+  const passwordReset = () => { 
+    const email = fileInputRef.current.value;
+    if (!email) {
+      alert("Please enter an email address");
+      return;
+    } else {
+      resetPassword(email)
+        .then(() => {
+        alert('Check your email inboxes')
+        }).catch(err => {
+        console.log(err);
+      })
+    }
+
+    
+   
+  }
 
  
 
@@ -81,7 +101,7 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">
-       <Toaster></Toaster>
+        <Toaster></Toaster>
         <div className="card  w-full flex-shrink-0 md:w-[500px]  shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
@@ -92,6 +112,7 @@ const Login = () => {
                 type="text"
                 placeholder="email"
                 name="email"
+                ref={fileInputRef}
                 required
                 className="input input-bordered"
               />
@@ -106,7 +127,7 @@ const Login = () => {
                 name="password"
                 className="input input-bordered"
               />
-              <label className="label">
+              <label onClick={passwordReset} className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
@@ -116,8 +137,13 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <div className='px-8 flex justify-center mb-4'>
-            <button onClick={handleSignUpWithGoogle} className="btn btn-primary ">Login with google</button>
+          <div className="px-8 flex justify-center mb-4">
+            <button
+              onClick={handleSignUpWithGoogle}
+              className="btn btn-primary "
+            >
+              Login with google
+            </button>
           </div>
         </div>
       </div>
