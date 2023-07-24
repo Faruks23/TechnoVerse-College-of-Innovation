@@ -3,7 +3,7 @@ import { AuthContext } from "../../../AuthPorvider/AuthProvider";
 
 const Modal = ({ onClose }) => {
 
-  const { UpdateUser, updateEmails} = useContext(AuthContext);
+  const { UpdateUser,user} = useContext(AuthContext);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,24 +14,25 @@ const Modal = ({ onClose }) => {
     const address = form.address.value
     
     console.log();
-    const user = { name, email, university, address }
+    const users = { name, email, university, address }
 
     UpdateUser(name)
       .then(result => {
         console.log(result);
-         fetch("http://localhost:5000/users", {
-           method: "POST",
+         fetch(`http://localhost:5000/UpdateUsers/${user?.email}`, {
+           method: "PUT",
            headers: {
              "content-type": "application/json",
            },
-           body: JSON.stringify(user),
+           body: JSON.stringify(users),
          })
-          .then(res => res.json())
-           .then(data => {
-             if (insertedId) {
-                alert('updated completely')
-              } console.log(data);
-           })
+           .then((res) => res.json())
+           .then((data) => {
+             if (data.matchedCount > 0) {
+               alert("updated completely");
+             }
+             console.log(data);
+           });
 
       })
       

@@ -17,7 +17,7 @@ const SignUp = () => {
     const PhotoUrl = form.PhotoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    if (!email) {
+    if(!email) {
       toast("please enter your email or password");
       return;
     } else if (!password) {
@@ -35,6 +35,25 @@ const SignUp = () => {
         Navigate("/");
         toast.success("Login success ,happy shopping");
         form.reset();
+        
+          const users={name,email,}
+
+           if (result.user) {
+             fetch("http://localhost:5000/users", {
+               method: "POST",
+               headers: {
+                 "content-type": "application/json",
+               },
+               body: JSON.stringify(users),
+             })
+               .then((res) => res.json())
+               .then((data) => {
+                 if (data.insertedId) {
+                   alert("updated completely");
+                 }
+                 console.log(data);
+               });
+           }
       })
       .catch((error) => {
         const errorMessage = error.message;

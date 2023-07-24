@@ -51,26 +51,8 @@ const AuthProvider = ({ children }) => {
   // get logged in user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      const name = user.displayName;
-      const email = user.email
-      const users={name,email}
-      if (user) {
-          fetch("http://localhost:5000/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(users),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                alert("updated completely");
-              }
-              console.log(data);
-            });
-       }
-       
+     
+     
       setUser(user);
 
 
