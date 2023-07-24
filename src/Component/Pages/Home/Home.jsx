@@ -16,12 +16,12 @@ const Home = () => {
       <div className="Banner w-full md:h-[600px] h-full relative">
         <Banner></Banner>
         <div className="search absolute top-0 z-10 w-full h-full flex flex-col justify-center items-center">
-          <div className="mt-[-60px]  flex flex-col justify-center items-center">
+          <div className=" mt-10 md:mt-[-60px]  flex flex-col justify-center items-center">
             <h1 className="text-2xl font-bold font-serif md:text-7xl text-white text-center mb-3">
               {" "}
               We are Provide The best college services and facilities{" "}
             </h1>
-            <p className="md:w-[50%] text-center text-white mb-10 font-serif">
+            <p className="md:w-[50%] text-center text-white mb-10 font-serif  text-sm md:text-[18px]">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
               cupiditate ipsa iusto beatae alias ipsam, explicabo at quisquam
               dignissimos animi sint magnam vitae incidunt amet, distinctio
@@ -29,7 +29,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="se">
+          <div className="se mt-[-17px] md:mt-0">
             <SearchInput></SearchInput>
           </div>
         </div>
