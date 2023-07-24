@@ -69,15 +69,27 @@ const Header = () => {
                 </li>
               </>
             )}
-            {user && (
+              <NavLink to={"/Profile"}>
+            {user ? (
+              <>
+                <div className="w-10 h-10 rounded-full border bg-slate-100">
+                  <img
+                    className=" rounded-full w-10 h-10"
+                    src={user?.displayURL}
+                    alt=""
+                  />
+                </div>
+              </>
+            ) : (
               <>
                 <li>
-                  <NavLink to={"/Profile"}>
+                
                     <FaLaughWink className="w-10 h-10 text-black"></FaLaughWink>
-                  </NavLink>
+                  
                 </li>
               </>
             )}
+            </NavLink>
           </ul>
         </div>
       </div>

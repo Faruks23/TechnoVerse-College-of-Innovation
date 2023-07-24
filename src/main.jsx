@@ -14,6 +14,7 @@ import Profile from './Component/Pages/Profile/Profile.jsx'
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx'
 import CollegeDitails from './Component/Pages/Home/CollegeDitails/CollegeDitails.jsx'
 import Form from './Component/Pages/Addmission/CandidateFrom/Form.jsx'
+import PrivetRout from './Component/PrivetRout/PrivetRout.jsx'
 // https://main--endearing-strudel-c0b0a7.netlify.app/
 
 const routes = createBrowserRouter([
@@ -52,13 +53,16 @@ const routes = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <CollegeDitails></CollegeDitails>,
+        element: (
+          <PrivetRout>
+            <CollegeDitails></CollegeDitails>
+          </PrivetRout>
+        ),
       },
       {
         path: "/form/:data",
         element: <Form></Form>,
       },
-     
     ],
   },
 ]);
