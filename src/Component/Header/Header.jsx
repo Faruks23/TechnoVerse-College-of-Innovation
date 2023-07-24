@@ -37,9 +37,43 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52  z-50 "
           >
             <NavList></NavList>
+
+            <div className="Authentication ml-18 ">
+              <ul className="md:flex justify-center gap-5 uppercase font-serif font-bold items-center">
+                {user ? (
+                  <>
+                    <button onClick={handleLogout} className="btn btn-sm">
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <NavLink to={"/login"}>Login</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/SignUp"}>SignUp</NavLink>
+                    </li>
+                  </>
+                )}
+                <NavLink to={"/Profile"}>
+                  {user && (
+                    <>
+                      <div className="w-10 h-10 rounded-full border bg-slate-100">
+                        <img
+                          className=" rounded-full w-10 h-10"
+                          src={user?.displayURL}
+                          alt=""
+                        />
+                      </div>
+                    </>
+                  )}
+                </NavLink>
+              </ul>
+            </div>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl uppercase">
@@ -69,26 +103,18 @@ const Header = () => {
                 </li>
               </>
             )}
-              <NavLink to={"/Profile"}>
-            {user ? (
-              <>
-                <div className="w-10 h-10 rounded-full border bg-slate-100">
-                  <img
-                    className=" rounded-full w-10 h-10"
-                    src={user?.displayURL}
-                    alt=""
-                  />
-                </div>
-              </>
-            ) : (
-              <>
-                <li>
-                
-                    <FaLaughWink className="w-10 h-10 text-black"></FaLaughWink>
-                  
-                </li>
-              </>
-            )}
+            <NavLink to={"/Profile"}>
+              {user && (
+                <>
+                  <div className="w-10 h-10 rounded-full border bg-slate-100">
+                    <img
+                      className=" rounded-full w-10 h-10"
+                      src={user?.displayURL}
+                      alt=""
+                    />
+                  </div>
+                </>
+              )}
             </NavLink>
           </ul>
         </div>

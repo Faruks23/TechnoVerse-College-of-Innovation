@@ -15,7 +15,7 @@ const Home = () => {
 
       <div className="Banner w-full md:h-[600px] h-full relative">
         <Banner></Banner>
-        <div className="search absolute top-0 z-50 w-full h-full flex flex-col justify-center items-center">
+        <div className="search absolute top-0 z-10 w-full h-full flex flex-col justify-center items-center">
           <div className="mt-[-60px]  flex flex-col justify-center items-center">
             <h1 className="text-2xl font-bold font-serif md:text-7xl text-white text-center mb-3">
               {" "}
