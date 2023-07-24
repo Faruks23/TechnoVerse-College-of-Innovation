@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateEmail,
   updateProfile,
 } from "firebase/auth";
 import app from "../../../firebase.config";
@@ -25,10 +26,10 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // update user with  name photoUrl
-  const UpdateUser = (name, photoURL) => {
+  const UpdateUser = (name) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: photoURL,
+      
     });
   };
   // sign in with google account
@@ -50,7 +51,28 @@ const AuthProvider = ({ children }) => {
   // get logged in user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const name = user.displayName;
+      const email = user.email
+      const users={name,email}
+      if (user) {
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(users),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                alert("updated completely");
+              }
+              console.log(data);
+            });
+       }
+       
       setUser(user);
+
 
     });
     return () => {
@@ -83,9 +105,13 @@ const AuthProvider = ({ children }) => {
 
   const getId = (id) => {
    console.log(id);
- }
-
-
+  }
+   
+// update email  
+  const updateEmails = (email) => { 
+    return updateEmail(auth.currentUser, email)
+      
+  }
 
   const AuthUser = {
     CreateUser,
@@ -98,6 +124,7 @@ const AuthProvider = ({ children }) => {
     toggleDarkMode,
     darkMode,
     getId,
+    updateEmails,
   };
   return (
     <>

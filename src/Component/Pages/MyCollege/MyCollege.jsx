@@ -12,9 +12,7 @@ const MyCollege = () => {
   console.log(myColleges);
 
   return (
-    <div>
-      My MyCollege
-    </div>
+    <></>
   );
 };
 

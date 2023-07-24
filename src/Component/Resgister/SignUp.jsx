@@ -43,12 +43,13 @@ const SignUp = () => {
         // ..
       });
   };
-  const updateUser = (cruent, Name, photoURL) => {
-    updateProfile(cruent, {
-      displayName: Name,
-      photoURL: photoURL,
-    });
-  };
+ const updateUser = (cruent, Name, photoURL) => {
+   updateProfile(cruent, {
+     displayName: Name,
+     photoURL: photoURL,
+   });
+ };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">
