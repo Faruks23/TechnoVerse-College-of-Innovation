@@ -39,13 +39,16 @@ const SignUp = () => {
           const users={name,email,}
 
            if (result.user) {
-             fetch("http://localhost:5000/users", {
-               method: "POST",
-               headers: {
-                 "content-type": "application/json",
-               },
-               body: JSON.stringify(users),
-             })
+             fetch(
+               "https://techno-verse-college-of-innovation-server.vercel.app/users",
+               {
+                 method: "POST",
+                 headers: {
+                   "content-type": "application/json",
+                 },
+                 body: JSON.stringify(users),
+               }
+             )
                .then((res) => res.json())
                .then((data) => {
                  if (data.insertedId) {

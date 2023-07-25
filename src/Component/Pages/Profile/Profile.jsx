@@ -65,7 +65,9 @@ const Profile = () => {
   };
 
 useEffect(() => { 
-fetch(`http://localhost:5000/getUser/${user?.email}`)
+fetch(
+  `https://techno-verse-college-of-innovation-server.vercel.app/getUser/${user?.email}`
+)
   .then((res) => res.json())
   .then((data) => {
     console.log(data, "da");

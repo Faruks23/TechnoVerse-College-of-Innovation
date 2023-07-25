@@ -12,16 +12,20 @@ const ReviewModal = ({ isOpen, onClose, collageName }) => {
     const form = e.target;
     const review = form.review.value;
        const fullReview={review,Name:collageName,rating:ratings} 
-    fetch("http://localhost:5000/AddReview", {
-      method: "POST",
-      headers: {
-        "content-type":"application/json",
-      },
-      body: JSON.stringify(fullReview),
-    }).then(res => res.json())
-      .then(data => {
+    fetch(
+      "https://techno-verse-college-of-innovation-server.vercel.app/AddReview",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(fullReview),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-    })
+      });
 
 
     onClose();

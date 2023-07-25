@@ -74,13 +74,16 @@ const [loader, setLoader] = useState();
              email: user?.email,
              item:items,
            };
-           fetch(`http://localhost:5000/admissionsForm`,{
-             method: "POST",
-             headers: {
-               "content-type": "application/json",
-             },
-             body: JSON.stringify(Applied),
-           })
+           fetch(
+             `https://techno-verse-college-of-innovation-server.vercel.app/admissionsForm`,
+             {
+               method: "POST",
+               headers: {
+                 "content-type": "application/json",
+               },
+               body: JSON.stringify(Applied),
+             }
+           )
              .then((res) => res.json())
              .then((data) => {
                if (data.insertedId) {
