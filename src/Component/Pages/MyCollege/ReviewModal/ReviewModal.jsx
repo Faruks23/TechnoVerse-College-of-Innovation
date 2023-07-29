@@ -32,6 +32,7 @@ const ReviewModal = ({ isOpen, onClose, collageName }) => {
     )
       .then((res) => res.json())
       .then((data) => {
+        alert('Review completed successfully')
         console.log(data);
       });
 
