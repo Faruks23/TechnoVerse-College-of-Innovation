@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../AuthPorvider/AuthProvider";
 
 const ReviewModal = ({ isOpen, onClose, collageName }) => {
+
+  const {user}=useContext(AuthContext)
   const [ratings, setRating] = useState(5);
 
   const handleRatingChange = (e) => {
@@ -10,8 +13,13 @@ const ReviewModal = ({ isOpen, onClose, collageName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const review = form.review.value;
-       const fullReview={review,Name:collageName,rating:ratings} 
+    const reviewText = form.review.value;
+       const fullReview = {
+         reviewText,
+         collegeName: collageName,
+         rating:ratings,
+         reviewerName: user?.displayName,
+       }; 
     fetch(
       "https://techno-verse-college-of-innovation-server.vercel.app/AddReview",
       {

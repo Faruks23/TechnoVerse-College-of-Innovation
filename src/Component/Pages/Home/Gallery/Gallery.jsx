@@ -2,13 +2,13 @@ import React from 'react';
 
 const Gallery = () => {
   return (
-    <div className="my-[100px]">
+    <div className="my-[100px] ">
       <h1 className="font-bold text-2xl md:text-5xl text-center uppercase">
         <span className="text-pink-500">graduate's</span> group{" "}
       </h1>
 
-      <div className="flex justify-center my-[100px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto">
+      <div className="  flex justify-center  my-[100px] mx-[10%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  container mx-auto">
           <img
             src="https://media.istockphoto.com/id/1370529942/photo/portrait-of-a-young-man-standing-with-his-arms-crossed-on-graduation-day.webp?b=1&s=170667a&w=0&k=20&c=9LBJB6Y4Q64pdc_yIwUuSa8Uecp1Chywmx-cEiL1Px8="
             alt=""
