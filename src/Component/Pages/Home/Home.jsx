@@ -37,7 +37,7 @@ const Home = () => {
       {/*  colleges card */}
 
       <div className="collageCard my-[100px]">
-        <h1 className="text-2xl md:text-5xl text-center uppercase mb-10">
+        <h1 className="text-2xl md:text-5xl text-center uppercase mb-10 font-bold">
           Best <span className='text-pink-500'>Colleges</span>
         </h1>
         <CollageCard></CollageCard>
